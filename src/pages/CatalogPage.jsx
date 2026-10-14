@@ -1,23 +1,24 @@
-import ProductCard from '../components/ProductCard.jsx';
-import CategoryFilter from '../components/CategoryFilter.jsx';
+import ProductCard from "../components/ProductCard.jsx"
+import CategoryFilter from "../components/CategoryFilter.jsx"
+import { products } from "../data/products.js"
 
-export default function CatalogPage({ products, categories, activeCategory, onSelectCategory, onSelectProduct }) {
-  const visibleProducts = activeCategory
-    ? products.filter(p => p.category === activeCategory)
-    : products;
+export default function CatalogPage() {
+    // const visibleProducts = activeCategory
+    //   ? products.filter(p => p.category === activeCategory)
+    //   : products;
 
-  return (
-    <section className="page-shell">
-      <p className="page-eyebrow">Каталог</p>
-      <h1 className="page-title">Все растения</h1>
+    return (
+        <section className="page-shell">
+            <p className="page-eyebrow">Каталог</p>
+            <h1 className="page-title">Все растения</h1>
 
-      <CategoryFilter categories={categories} activeCategory={activeCategory} onSelect={onSelectCategory} />
+            {/* <CategoryFilter categories={categories} activeCategory={activeCategory} onSelect={onSelectCategory} /> */}
 
-      <div className="product-grid">
-        {visibleProducts.map(product => (
-          <ProductCard key={product.id} product={product} onSelect={onSelectProduct} />
-        ))}
-      </div>
-    </section>
-  );
+            <div className="product-grid">
+                {products.map((product) => (
+                    <ProductCard key={product.id} product={product} />
+                ))}
+            </div>
+        </section>
+    )
 }

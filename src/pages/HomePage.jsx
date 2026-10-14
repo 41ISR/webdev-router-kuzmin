@@ -21,7 +21,7 @@ export default function HomePage() {
 
             <p className="section-label">Популярное сейчас</p>
             <div className="product-grid">
-                {products.map((product) => (
+                {products.slice(0, 3).map((product) => (
                     <ProductCard
                         key={product.id}
                         product={product}
